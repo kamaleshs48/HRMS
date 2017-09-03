@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "BasicDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<SelectListItem> GenderList = new List<SelectListItem>
+    {
+        new SelectListItem { Text="Male",Value="1"},
+        new SelectListItem { Text="Female",Value="2"},
+        
+    };
+}
+
+@model HRMS.Models.EmpBasicDetails
+<div class="clearfix"></div>
+<br />
+<div style="background-color: #fff!important">
+    <div class="col-sm-8">
+        <div class="panel panel-success">
+            <div class="panel-heading"><strong>Update Basic Details</strong> </div>
+            <div class="panel-body">
+
+                @using (Html.BeginForm("BasicDetails", "Member"))
+                {
+                    @Html.ValidationSummary()
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="FirstName">First Name:</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="email">Last Name:</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="email">Email:</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="email">Father's Name </label>
+                            <div class="col-sm-8">
+
+                                @Html.TextBoxFor(m => m.FatherName, new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="email">DOB:</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.DOB, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="StaffID">Gender:</label>
+                            <div class="col-sm-8">
+                                @Html.DropDownListFor(m => m.GenderID, GenderList, "--Select--", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="Wages">Mobile No:</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="Wages">Aadhar Number:</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.AadharNumber, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="Wages">PAN:</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.PAN, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="PresentAddress">Marital Status:-:</label>
+                            <div class="col-sm-8">
+                                @Html.DropDownListFor(m => m.MaritalStatus, new SelectList(new[] { "Married", "Unmarrid" }), "--Select--", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="PermanentAddress">Permanent Address:</label>
+                            <div class="col-sm-8">
+                                @Html.TextAreaFor(m => m.PresentAddress, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="PermanentAddress">Permanent Address:</label>
+                            <div class="col-sm-8">
+                                @Html.TextAreaFor(m => m.PermanentAddress, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

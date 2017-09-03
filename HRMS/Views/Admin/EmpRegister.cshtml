@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "EmpRegister";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model HRMS.Models.EmployeeRegisterModel
+<div class="clearfix"></div>
+<div class="col-sm-8">
+    <div class="panel panel-success">
+        <div class="panel-heading"><strong>Employee Registration</strong> </div>
+        <div class="panel-body">
+
+            @using (Html.BeginForm("EmpRegister", "Admin"))
+            {
+                @Html.ValidationSummary()
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="FirstName">First Name:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="email">Last Name:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="email">Email:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="email">Client Name/Site:</label>
+                        <div class="col-sm-8">
+
+                            @Html.DropDownListFor(m => m.SiteID, Model.SiteList, "--Select--", new { @class = "form-control" })
+
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="email">Post:</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(m => m.PostID, Model.PostList, "--Select--", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="StaffID">Departmet:</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(m => m.StaffID, Model.StaffList, "--Select--", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="CategorieID">Category:</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(m => m.CategoryID, Model.CategorieList, "--Select--", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="Wages">Wages:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.Wages, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" for="DA">DA:</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.DA, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-10">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

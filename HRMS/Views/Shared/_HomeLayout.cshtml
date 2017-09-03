@@ -1,0 +1,137 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome to Best Care Services | A Placment Services</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/components.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/responsee.css")">
+    <link rel="stylesheet" href="@Url.Content("~/owl-carousel/owl.carousel.css")">
+    <link rel="stylesheet" href="@Url.Content("~/owl-carousel/owl.theme.css")">
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="@Url.Content("~/css/template-style.css")">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="@Url.Content("~/js/jquery-3.2.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/modernizr.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/responsee.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/template-scripts.js")"></script>
+
+    <!--[if lt IE 9]>
+	      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+      <![endif]-->
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <style>
+        .P1 a {
+            color:white;
+            font-size: 0.75em;
+        }
+        #Content {
+            background: none repeat scroll 0 0 #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    padding: 1em 2em;
+    position: relative;
+    z-index: 2;
+    min-height:500px;
+        }
+    </style>
+</head>
+   
+        <div id="topbar">
+            <div class="line">
+                <div class="s-12 m-6 l-6">
+                    <p>CONTACT US: <strong>+91-8802699574</strong> | <strong>contact@bestcars.com</strong></p>
+                </div>
+                <div class="s-12 m-6 l-6">
+                    <div class="social right">
+                        <div class="P1">
+                        <a class="btn-primary.btn-outline " href="@Url.Action("Login","Account")">Login</a> |
+                        <a class="btn" href="@Url.Action("Register","Account")">Register</a>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="line">
+                <div class="s-12 l-3">
+                    <p class="logo"><strong>Best</strong>Care Services</p>
+                </div>
+                <div class="top-nav s-12 l-9">
+                    <p class="nav-text">Best Care Services</p>
+                    <ul class="right">
+                        <li class="active-item"><a href="#carousel">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about-us">About Us</a></li>
+                        <li><a href="#our-work">Our Work</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+<body class="size-1140">
+   
+    <!-- TOP NAV WITH LOGO -->
+    
+    <div id="Content">
+       @RenderBody()
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="line">
+          
+            <div class="s-12 l-6">
+                <p>Copyright 2016, Best Care</p>
+                <p></p>
+            </div>
+            <div class="s-12 l-6">
+                <a class="right" href="#" title="Best Care">Design and coding<br>
+                    by Best Care Team</a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="@Url.Content("~/owl-carousel/owl.carousel.js")"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            var theme_slider = $("#owl-demo");
+            $("#owl-demo").owlCarousel({
+                navigation: false,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                autoPlay: 6000,
+                addClassActive: true,
+                // transitionStyle: "fade",
+                singleItem: true
+            });
+            $("#owl-demo2").owlCarousel({
+                slideSpeed: 300,
+                autoPlay: true,
+                navigation: true,
+                navigationText: ["&#xf007", "&#xf006"],
+                pagination: false,
+                singleItem: true
+            });
+
+            // Custom Navigation Events
+            $(".next-arrow").click(function () {
+                theme_slider.trigger('owl.next');
+            })
+            $(".prev-arrow").click(function () {
+                theme_slider.trigger('owl.prev');
+            })
+        });
+    </script>
+      @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
