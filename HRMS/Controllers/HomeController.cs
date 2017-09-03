@@ -27,7 +27,7 @@ namespace HRMS.Controllers
         public ActionResult Contact()
         {
 
-            // Test From Local
+            // Test From Local  and publish vs2013
 
 
             ViewBag.Message = "Your contact page.";
