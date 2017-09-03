@@ -26,6 +26,10 @@ namespace HRMS.Controllers
 
         public ActionResult Contact()
         {
+
+            // Test From Local
+
+
             ViewBag.Message = "Your contact page.";
 
             return View();
