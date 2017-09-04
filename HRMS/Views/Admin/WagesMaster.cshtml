@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "WagesMaster";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .form-control {
+        text-align:right!important;
+    }
+</style>
+
+
+@model HRMS.Models.WagesModels
+<br />
+<div class="clearfix"></div>
+<div class="col-sm-8">
+    <div class="panel panel-success">
+        <div class="panel-heading"><strong>Update Wages Details</strong> </div>
+        <div class="panel-body">
+
+            @using (Html.BeginForm("WagesMaster", "Admin"))
+            {
+                @Html.ValidationSummary()
+
+                <div class="form-horizontal">
+
+                    <table border="1">
+                        <tr style="padding:5px;text-align:center;background-color:#eee">
+                            <th>Categories</th>
+                            <th>Wages</th>
+                            <th>DA</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    Skilled
+                                </label>
+
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.BasicWages_1, new { @class = "form-control" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.DA_1, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    Semi Skilled
+                                </label>
+
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.BasicWages_2, new { @class = "form-control" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.DA_2, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    Unskilled
+                                </label>
+
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.BasicWages_3, new { @class = "form-control" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.DA_3, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    Graduate And Above
+                                </label>
+
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.BasicWages_4, new { @class = "form-control" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.DA_4, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                   Matriculate but not Graduate
+                                </label>
+
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.BasicWages_5, new { @class = "form-control" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.DA_5, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                   Non Matriculate
+                                </label>
+
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.BasicWages_6, new { @class = "form-control" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(m => m.DA_6, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+                   
+                </div>
+                <div class="row">
+                     <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-10">
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

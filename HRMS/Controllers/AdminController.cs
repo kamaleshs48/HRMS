@@ -35,10 +35,10 @@ namespace HRMS.Controllers
                 if (r == 1)
                 {
 
-                    string body = " Hello " + models.FirstName +",</br> Your Passowrd is -" + models.UPassword;
+                    string body = " Hello " + models.FirstName + ",</br> Your Passowrd is -" + models.UPassword;
 
 
-                    CommanFunction.SendMailByBW(models.Email,"Best Care Password ", body);
+                    CommanFunction.SendMailByBW(models.Email, "Best Care Password ", body);
 
                     return RedirectToAction("EmpList", "Admin");
                 }
@@ -60,5 +60,11 @@ namespace HRMS.Controllers
         {
             return View();
         }
+
+        public ActionResult WagesMaster()
+        {
+            return View();
+        }
+
     }
 }

@@ -193,6 +193,7 @@
     <Compile Include="Models\EmployeeRegisterModel.cs" />
     <Compile Include="Models\LoginModels.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\WagesModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BL\EmployeeBL.cs" />
     <Compile Include="Repository\CommanFunction.cs" />
@@ -1120,6 +1121,7 @@
     <Content Include="Views\Admin\OnlineRegister.cshtml" />
     <Content Include="Views\Shared\_EmpLeftMenu.cshtml" />
     <Content Include="Views\Member\PFDetails.cshtml" />
+    <Content Include="Views\Admin\WagesMaster.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
