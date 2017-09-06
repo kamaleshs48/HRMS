@@ -190,6 +190,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmpEducationDetails.cs" />
     <Compile Include="Models\EmployeeRegisterModel.cs" />
     <Compile Include="Models\LoginModels.cs" />
     <Compile Include="Models\Message.cs" />
@@ -299,6 +300,7 @@
     <Content Include="owl-carousel\owl.carousel.js" />
     <Content Include="owl-carousel\owl.carousel.min.js" />
     <Content Include="owl-carousel\owl.theme.css" />
+    <Content Include="Scripts\Comman.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -313,6 +315,9 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="sweetalert\lib\core.js" />
+    <Content Include="sweetalert\lib\sweet-alert.css" />
+    <Content Include="sweetalert\lib\sweet-alert.min.js" />
     <Content Include="Vendor\bootstrap-social\bootstrap-social.css" />
     <Content Include="Vendor\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Vendor\bootstrap\dist\css\bootstrap-theme.min.css" />
@@ -1122,9 +1127,11 @@
     <Content Include="Views\Shared\_EmpLeftMenu.cshtml" />
     <Content Include="Views\Member\PFDetails.cshtml" />
     <Content Include="Views\Admin\WagesMaster.cshtml" />
+    <Content Include="Views\Member\EducationDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="EducationCer\" />
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>

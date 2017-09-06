@@ -7,6 +7,7 @@ namespace HRMS.Models
 {
     public class WagesModels
     {
+        public int CID { get; set; }
         public string BasicWages_1 { get; set; }
         public string DA_1 { get; set; }
         public string BasicWages_2 { get; set; }

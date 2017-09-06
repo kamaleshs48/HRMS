@@ -61,9 +61,31 @@ namespace HRMS.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult WagesMaster()
         {
-            return View();
+            WagesModels models = new WagesModels();
+            models = EmployeeBL.GetWagesDetails();
+            return View(models);
+        }
+        public ActionResult WagesMaster(WagesModels models)
+        {
+             string Qry="";
+            if (ModelState.IsValid)
+            {
+
+                Qry += " Update  tbl_WagesMaster Set Wages=" + Convert.ToInt32(models.BasicWages_1) + " ,DA =" + Convert.ToInt32(models.DA_1) + " WHERE CID = 1; ";
+                Qry += " Update  tbl_WagesMaster Set Wages=" + Convert.ToInt32(models.BasicWages_2) + " ,DA =" + Convert.ToInt32(models.DA_2) + " WHERE CID = 2; ";
+                Qry += " Update  tbl_WagesMaster Set Wages=" + Convert.ToInt32(models.BasicWages_3) + " ,DA =" + Convert.ToInt32(models.DA_3) + " WHERE CID = 3; ";
+                Qry += " Update  tbl_WagesMaster Set Wages=" + Convert.ToInt32(models.BasicWages_4) + " ,DA =" + Convert.ToInt32(models.DA_4) + " WHERE CID = 4; ";
+                Qry += " Update  tbl_WagesMaster Set Wages=" + Convert.ToInt32(models.BasicWages_5) + " ,DA =" + Convert.ToInt32(models.DA_5) + " WHERE CID = 5; ";
+                Qry += " Update  tbl_WagesMaster Set Wages=" + Convert.ToInt32(models.BasicWages_6) + " ,DA =" + Convert.ToInt32(models.DA_6) + " WHERE CID = 6; ";
+                CommanFunction.ExecuteNonQuery(Qry);
+
+                ViewBag.Message = "Data Updated Successfully.";
+                models = EmployeeBL.GetWagesDetails();
+            }
+            return View(models);
         }
 
     }

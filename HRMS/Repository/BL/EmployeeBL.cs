@@ -21,6 +21,26 @@ namespace HRMS.Repository.BL
         {
             return EmployeeDA.GetEmpDetails(EMPID); 
         }
+        public static WagesModels GetWagesDetails()
+        {
+            return EmployeeDA.GetWagesDetails(); 
+        }
+        public static List<WagesModels> GetWagesListForAllCategory()
+        {
+            return EmployeeDA.GetWagesListForAllCategory(); 
+        }
+        public static EmpEducationDetails GetEmpEducation(int EMPID)
+        {
+            return EmployeeDA.GetEmpEducation(EMPID);
+        }
+        public static int UpdateEmpDetails(EmpBasicDetails Model)
+        {
+            return EmployeeDA.UpdateEmpDetails(Model);
+        }
+        public static int UpdateEmpEducation(EmpEducationDetails Model)
+        {
+            return EmployeeDA.UpdateEmpEducation(Model);
+        }
 
     }
 }

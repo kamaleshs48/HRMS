@@ -2,6 +2,31 @@
     ViewBag.Title = "EmpRegister";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+<script>
+    var availableList = '@Html.Raw(Json.Encode(HRMS.Repository.BL.EmployeeBL.GetWagesListForAllCategory()))';
+   // console.log(availableList);
+   
+    $(document).ready(function () {
+        console.log("ready!");
+    });
+
+    function ChangeValue(drp) {
+       
+
+        $.each(JSON.parse(availableList), function (i, obj) {
+            if (obj.CID == drp.value) {
+                $("#Wages").val(obj.BasicWages_1);
+                $("#DA").val(obj.DA_1);
+            }
+        });
+
+    }
+    
+
+</script>
+
+
 @model HRMS.Models.EmployeeRegisterModel
 <div class="clearfix"></div>
 <div class="col-sm-8">
@@ -57,7 +82,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-4" for="CategorieID">Category:</label>
                         <div class="col-sm-8">
-                            @Html.DropDownListFor(m => m.CategoryID, Model.CategorieList, "--Select--", new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.CategoryID, Model.CategorieList, "--Select--", new { @class = "form-control",@onchange="ChangeValue(this)" })
                         </div>
                     </div>
                     <div class="form-group">

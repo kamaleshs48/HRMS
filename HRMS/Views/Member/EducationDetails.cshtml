@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "EducationDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    
+}
+<script>
+    function ShowImagePreview(input) {
+        if (!(/\.(pdf)$/i).test(input.value)) {
+            alert('You must select an pdf file only and file must be .pdf types');
+            return false;
+        }
+    }
+</script>
+
+@model HRMS.Models.EmpEducationDetails
+<div class="clearfix"></div>
+@Html.HiddenFor(m => m.ID)
+<br />
+
+<div style="background-color: #fff!important">
+    <div class="col-sm-8">
+        <div class="panel panel-success">
+            <div class="panel-heading"><strong>Update Education Details</strong> </div>
+            <div class="panel-body">
+
+                @using (Html.BeginForm("EducationDetails", "Member", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.ValidationSummary()
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="FirstName">10th Certificate:</label>
+                            <div class="col-sm-8">
+                                <input id="file1" name="file1" type="file" accept="application/pdf" onchange="ShowImagePreview(this);" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="email">
+                            12th Certificate:</label>
+                            <div class="col-sm-8">
+                                <input id="file2" name="file2" type="file" accept="application/pdf"  onchange="ShowImagePreview(this);"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="email">
+                            Graduation Certificate:</label>
+                            <div class="col-sm-8">
+                                <input id="file3" name="file3" type="file" accept="application/pdf"  onchange="ShowImagePreview(this);" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="email">
+                            Po. Gr. Certificate</label>
+                            <div class="col-sm-8">
+                                <input id="file4" name="file4" type="file" accept="application/pdf"  onchange="ShowImagePreview(this);"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading"><strong>Education Details</strong> </div>
+            <div class="panel-body">
+
+                @using (Html.BeginForm("EducationDetails", "Member"))
+                {
+                    @Html.ValidationSummary()
+
+                    <div class="form-horizontal">
+                        <table border="1">
+
+                            <tr>
+                                <td>10th</td>
+                                <td>
+                                    <a href="~/EducationCer/@Model.cr10" target="_blank">@Model.cr10</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12th</td>
+                                <td><a href="~/EducationCer/@Model.cr12" target="_blank">@Model.cr12</a></td>
+                            </tr>
+                            <tr>
+                                <td>GR.</td>
+                                <td><a href="~/EducationCer/@Model.crGr" target="_blank">@Model.crGr</a></td>
+                            </tr>
+                            <tr>
+                                <td>PO.GR.</td>
+                                <td><a href="~/EducationCer/@Model.crPoGr" target="_blank">@Model.crPoGr</a></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
