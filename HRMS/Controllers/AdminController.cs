@@ -12,7 +12,7 @@ namespace HRMS.Controllers
     public class AdminController : Controller
     {
         //
-        // GET: /Admin/ Update
+        // GET: /Admin/ Update by 
 
         public ActionResult Index()
         {
