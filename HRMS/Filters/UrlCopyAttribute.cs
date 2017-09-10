@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-namespace PCRS_V1.Filters
+namespace HRMS.Filters
 {
-    public class UrlCopyAttribute:ActionFilterAttribute
+    public class UrlCopyAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -21,8 +21,8 @@ namespace PCRS_V1.Filters
             {
                 PName = filterContext.HttpContext.Request.UrlReferrer.Segments[filterContext.HttpContext.Request.UrlReferrer.Segments.Length - 1];
             }
-           // filterContext.HttpContext.Session["Action"] = NewActionName;
-           if (PName == "" || filterContext.HttpContext.Session["LoginUserDetails"] ==null)
+            // filterContext.HttpContext.Session["Action"] = NewActionName;
+            if (PName == "" || filterContext.HttpContext.Session["USERID"] == null)
             {
                 string message = "You have no right to view this page.";
                 RouteValueDictionary redirectTargetDictionary = new RouteValueDictionary();
@@ -30,9 +30,9 @@ namespace PCRS_V1.Filters
                 redirectTargetDictionary.Add("action", "Login");
                 redirectTargetDictionary.Add("controller", "Home");
                 // redirectTargetDictionary.Add("customMessage", message);
-                 filterContext.Result = new RedirectToRouteResult(redirectTargetDictionary);
+                filterContext.Result = new RedirectToRouteResult(redirectTargetDictionary);
             }
-                    
+
         }
         private string Log(RouteData routeData)
         {

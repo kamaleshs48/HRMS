@@ -192,6 +192,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\EmpEducationDetails.cs" />
     <Compile Include="Models\EmployeeRegisterModel.cs" />
     <Compile Include="Models\LoginModels.cs" />
@@ -1130,9 +1131,13 @@
     <Content Include="Views\Member\PFDetails.cshtml" />
     <Content Include="Views\Admin\WagesMaster.cshtml" />
     <Content Include="Views\Member\EducationDetails.cshtml" />
+    <Content Include="Views\Home\ForgotPassword.cshtml" />
+    <Content Include="Views\Home\ResetPassword.cshtml" />
+    <Content Include="Views\Admin\Attendence.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
     <Folder Include="EducationCer\" />
   </ItemGroup>
   <ItemGroup>

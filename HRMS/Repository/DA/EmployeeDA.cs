@@ -59,7 +59,7 @@ namespace HRMS.Repository.DA
 
         }
 
-       
+
         public static EmpBasicDetails GetEmpDetails(int EMPID)
         {
             EmpBasicDetails models = new EmpBasicDetails();
@@ -118,7 +118,7 @@ namespace HRMS.Repository.DA
             }
             return status;
 
-           
+
 
         }
         public static EmpEducationDetails GetEmpEducation(int EMPID)
@@ -207,7 +207,60 @@ namespace HRMS.Repository.DA
             return lst;
         }
 
+        public static ForgotViewModel ForgotPassword(ForgotViewModel model)
+        {
+            ForgotViewModel result = new ForgotViewModel();
+            try
+            {
+                SqlParameter[] pr = new SqlParameter[]
+                {
+                 new SqlParameter("@EmailId",model.Email),
+                 new SqlParameter("@Password",model.password),
+                };
+                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConnectionStr(), CommandType.StoredProcedure, "Sp_ForgotPassword", pr);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows[0]["Status"].ToString() == "Success")
+                {
+                    result.Succeeded = true;
+                    result.UserName = ds.Tables[0].Rows[0]["FirstName"].ToString() + " " + ds.Tables[0].Rows[0]["LastName"].ToString();
+                }
+                else
+                {
+                    result.Succeeded = false;
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
+            return result;
+        }
+        public static ResetPasswordViewModel ResetPasswordAsync(ResetPasswordViewModel model)
+        {
+            ResetPasswordViewModel result = new ResetPasswordViewModel();
+            try
+            {
+                SqlParameter[] pr = new SqlParameter[]
+                {
+                 new SqlParameter("@EmailId",model.Email),
+                 new SqlParameter("@Password",model.Password),
+                };
+                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConnectionStr(), CommandType.StoredProcedure, "Sp_ResetPassword", pr);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows[0]["Status"].ToString() == "Success")
+                {
+                    result.Succeeded = true;
+                    result.UserName = ds.Tables[0].Rows[0]["FirstName"].ToString() + " " + ds.Tables[0].Rows[0]["LastName"].ToString();
+                }
+                else
+                {
+                    result.Succeeded = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
 
     }
 }

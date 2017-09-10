@@ -104,4 +104,34 @@ namespace HRMS.Models
        
 
     }
+    public class ForgotViewModel
+    {
+        public string Email { get; set; }
+        public string UserName { get; set; }
+        public string password { get; set; }
+        public bool Succeeded { get; set; }
+    }
+    [Serializable()]
+    public class ResetPasswordViewModel
+    {
+
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Please enter the Password.")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        [RegularExpression(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$", ErrorMessage = "Password must be 6 to 15 characters long. Must contain at least one lower case, one upper case letter, one digit and special character.")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Please enter Confirm password.")]
+        [Display(Name = "Confirm password")]
+        [RegularExpression(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$", ErrorMessage = "Password must be 6 to 15 characters long. Must contain at least one lower case, one upper case letter, one digit and special character.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Password and Confirm password do not match.")]
+        public string ConfirmPassword { get; set; }
+        public string UserName { get; set; }
+        public bool Succeeded { get; set; }
+
+    }
 }

@@ -41,6 +41,13 @@ namespace HRMS.Repository.BL
         {
             return EmployeeDA.UpdateEmpEducation(Model);
         }
-
+        public static ForgotViewModel ForgotPassword(ForgotViewModel model)
+        {
+            return EmployeeDA.ForgotPassword(model);
+        }
+        public static ResetPasswordViewModel ResetPasswordAsync(ResetPasswordViewModel model)
+        {
+            return EmployeeDA.ResetPasswordAsync(model);
+        }
     }
 }

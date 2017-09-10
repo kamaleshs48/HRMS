@@ -295,6 +295,40 @@ namespace HRMS.Repository
                 return false;
             }
         }
+        public static string GetEmailFooter()
+        {
 
+            string mailfooterThankYou = "";
+            mailfooterThankYou += "<br/><span style='font-size:11pt;font-family:Times New Roman'>Thank you.</span><br/><br/>";
+            mailfooterThankYou += "-----------------------------------------------------------------------------------------------------------------<br/>";
+            mailfooterThankYou += "<span style='font-family:Times New Roman'><b>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</b></span><br/>";
+            mailfooterThankYou += "-----------------------------------------------------------------------------------------------------------------<br/><br/>";
+
+            string mailfooter = "";
+            //mailfooter += "<a href='https://XXXXXX.com'><img id='imgLogo' src='https://XXXXXXXXX.com/images/logos/logo.PNG' /></a><br/>";
+            mailfooter += "<span style='font-size:10px;font-family:Times New Roman'>This is an automated message sent by our service. Please do not reply to this email. If you have a support query please contact us by emailing us at support@XXXXXX.com.</span>" + "<br /><br />";
+            mailfooter += "<span style='font-size:10px;font-family:Times New Roman'>XXXXXX | XXXXXXXX | XXXXXXXXX | XXXX | XXXXXXXXX</span>" + "<br />";
+            mailfooter += "<span style='font-size:10px;font-family:Times New Roman'>XXXXXXXXXXXXXXXX | XXXXXXXXXX</span>" + "<br /><br/>";
+            mailfooter += "<span style='font-size:10px;font-family:Times New Roman'>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>" + "<br/><br/>";
+            mailfooter += "<span style='font-size:10px;font-family:Times New Roman'>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>" + "<br/><br/>";
+
+
+            mailfooter += "<span style='font-size: 10pt; font-family:Times New Roman'>********************************************************************************************************************";
+
+
+            return mailfooterThankYou + mailfooter;
+        }
+        public static string GenerateUniqueCode(int maxValue, int length)
+        {
+            string chars = "123456789abcdefghiABCDEFGHIjklmnopqrJKLMNOPQRstuvwxyzSTUVWXYZ";
+            char[] stringChars = new char[length];
+            Random random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(0, maxValue)];
+            }
+            return new String(stringChars);
+        }
     }
 }

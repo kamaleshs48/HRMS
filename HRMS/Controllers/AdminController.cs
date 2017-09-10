@@ -7,6 +7,7 @@ using HRMS.Models;
 using HRMS.Repository.BL;
 using HRMS.Repository.DA;
 using HRMS.Repository;
+using HRMS.Filters;
 namespace HRMS.Controllers
 {
     public class AdminController : Controller
@@ -18,6 +19,7 @@ namespace HRMS.Controllers
         {
             return View();
         }
+        [UrlCopyAttribute]
         [HttpGet]
         public ActionResult EmpRegister()
         {
@@ -25,6 +27,7 @@ namespace HRMS.Controllers
 
             return View(models);
         }
+        [UrlCopyAttribute]
         [HttpPost]
         public ActionResult EmpRegister(EmployeeRegisterModel models)
         {
@@ -46,10 +49,12 @@ namespace HRMS.Controllers
             ModelState.AddModelError("", "Somthing wrong please contact IT Team.");
             return View();
         }
+        [UrlCopyAttribute]
         public ActionResult DashBoard()
         {
             return View();
         }
+        [UrlCopyAttribute]
         public ActionResult EmpList()
         {
             EmployeeRegisterModel model = new EmployeeRegisterModel();
@@ -60,7 +65,7 @@ namespace HRMS.Controllers
         {
             return View();
         }
-
+        [UrlCopyAttribute]
         [HttpGet]
         public ActionResult WagesMaster()
         {
@@ -68,6 +73,8 @@ namespace HRMS.Controllers
             models = EmployeeBL.GetWagesDetails();
             return View(models);
         }
+        [UrlCopyAttribute]
+        [HttpPost]
         public ActionResult WagesMaster(WagesModels models)
         {
              string Qry="";
@@ -86,6 +93,12 @@ namespace HRMS.Controllers
                 models = EmployeeBL.GetWagesDetails();
             }
             return View(models);
+        }
+
+
+        public ActionResult Attendence()
+        {
+            return View();
         }
 
     }
