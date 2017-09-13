@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HiQPdf">
+      <HintPath>D:\IGTFS\Neurophysiology For PP\Neurophysiology For PP\bin\HiQPdf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
       <HintPath>D:\KKMIT Project\Green Plus Society\Green Plus Society\bin\MySql.Data.dll</HintPath>
