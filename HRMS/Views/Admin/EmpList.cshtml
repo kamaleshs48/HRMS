@@ -8,10 +8,10 @@
 <div class="row">
     <div class="col-lg-12">
         <a href="@Url.Action("EmpRegister", "Admin")" class="btn btn-success">Add New Employee</a>
-       
+
     </div>
-    </div>
-    <div class="row" style="padding-top:10px;">
+</div>
+<div class="row" style="padding-top: 10px;">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -39,16 +39,14 @@
                                     <td>@l.LastName</td>
                                     <td>@l.Email</td>
                                     <td><a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                        <a href="#" class="btn btn-success btn-xs">View Details</a>
-                                        <a href="#" class="btn btn-danger btn-xs" >View Doucment</a>
-                                        <a href="#" class="btn btn-primary btn-xs">PF Details</a>
-                                        <a href="#" class="btn btn-success btn-xs">ESI Details</a>
+                                        <a href="@Url.Action("BasicDetails", "Member", new { @ID = HRMS.Repository.CommanFunction.UrlEncode(@l.EmpID) })" class="btn btn-success btn-xs">View Details</a>
+                                        <a href="@Url.Action("EmpDoc", "Admin", new { @ID = HRMS.Repository.CommanFunction.UrlEncode(@l.EmpID) })" class="btn btn-danger btn-xs" >View Doucment</a>
                                     </td>
                                 </tr>
                             }
 
 
-                            <td></td>
+
                         </tbody>
                     </table>
                 </div>
@@ -67,4 +65,4 @@
             responsive: true
         });
     });
-    </script>
+</script>

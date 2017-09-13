@@ -6,21 +6,32 @@ using System.Web.Mvc;
 using HRMS.Models;
 using HRMS.Repository.BL;
 using System.IO;
+using HRMS.Repository;
 namespace HRMS.Controllers
 {
     public class MemberController : Controller
     {
 
-         public ActionResult DashBoard()
+        public ActionResult DashBoard()
         {
             return View();
         }
         [HttpGet]
-        public ActionResult BasicDetails()
+        public ActionResult BasicDetails(string ID)
         {
             EmpBasicDetails models = new EmpBasicDetails();
 
-            models = EmployeeBL.GetEmpDetails(Convert.ToInt32(Session[SessionVariable.UserID].ToString()));
+            if (!string.IsNullOrEmpty(ID))
+            {
+                models = EmployeeBL.GetEmpDetails(Convert.ToInt32(CommanFunction.UrlDecode(ID)));
+            }
+            else
+            {
+                models = EmployeeBL.GetEmpDetails(Convert.ToInt32(Session[SessionVariable.UserID].ToString()));
+            }
+
+
+           
 
             return View(models);
         }
@@ -28,7 +39,7 @@ namespace HRMS.Controllers
         [HttpPost]
         public ActionResult BasicDetails(EmpBasicDetails models)
         {
-            models.EmpID = Session[SessionVariable.UserID].ToString();
+           
             int a = EmployeeBL.UpdateEmpDetails(models);
             return View(models);
         }

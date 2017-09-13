@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "EmpDoc";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@model HRMS.Models.WagesModels
+<br />
+<div class="clearfix"></div>
+<div class="col-sm-8">
+    <div class="panel panel-success">
+        <div class="panel-heading"><strong>Employee Doc Details</strong> </div>
+        <div class="panel-body">
+
+           
+                <div class="form-horizontal">
+
+                    <table border="1" style="width:100%">
+                        <tr style="background-color:#eeeeee;font-weight:bold">
+                            <th colspan="1">First Name :</th>
+                            <td colspan="1">Last Name :</td>
+                            <td colspan="1">Email :</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td><a href="#" class="btn btn-success btn-xs">Open Doc</a></td>
+                            <td> <a href="#" class="btn btn-success btn-xs">Verify Doc</a> <a href="#" class="btn btn-success btn-xs">Reject Doc</a></td>
+                            <td>@Html.TextArea("10Rejection")</td>
+
+                        </tr>
+                    </table>
+
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-10">
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

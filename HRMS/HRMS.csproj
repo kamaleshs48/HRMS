@@ -40,8 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HiQPdf">
-      <HintPath>D:\IGTFS\Neurophysiology For PP\Neurophysiology For PP\bin\HiQPdf.dll</HintPath>
+    <Reference Include="HiQPdf, Version=10.15.0.0, Culture=neutral, PublicKeyToken=acd8b62594985b24, processorArchitecture=MSIL">
+      <HintPath>..\packages\hiqpdf.10.15\lib\net40\HiQPdf.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
@@ -1137,11 +1138,14 @@
     <Content Include="Views\Home\ForgotPassword.cshtml" />
     <Content Include="Views\Home\ResetPassword.cshtml" />
     <Content Include="Views\Admin\Attendence.cshtml" />
+    <Content Include="Views\Admin\EmpDoc.cshtml" />
+    <Content Include="Views\Admin\EMPOL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
     <Folder Include="EducationCer\" />
+    <Folder Include="upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
