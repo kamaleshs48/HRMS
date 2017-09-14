@@ -29,10 +29,6 @@ namespace HRMS.Controllers
             {
                 models = EmployeeBL.GetEmpDetails(Convert.ToInt32(Session[SessionVariable.UserID].ToString()));
             }
-
-
-           
-
             return View(models);
         }
 
@@ -92,6 +88,18 @@ namespace HRMS.Controllers
                         if (count == 4)
                         {
                             model.crPoGr = fileName;
+                            count++;
+                            continue;
+                        }
+                        if (count == 5)
+                        {
+                            model.PANCARD = fileName;
+                            count++;
+                            continue;
+                        }
+                        if (count == 6)
+                        {
+                            model.AADHARCARD = fileName;
                             count++;
                             continue;
                         }

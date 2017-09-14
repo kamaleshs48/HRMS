@@ -12,6 +12,8 @@ namespace HRMS.Models
         public string cr12 { get; set; }
         public string crGr { get; set; }
         public string crPoGr { get; set; }
+        public string AADHARCARD { get; set; }
+        public string PANCARD { get; set; }
 
     }
 }

@@ -7,7 +7,7 @@ using HRMS.Models;
 using System.Data;
 using HRMS.Repository;
 using HRMS.Repository.BL;
-using HiQPdf;
+
 
 namespace HRMS.Controllers
 {

@@ -4,7 +4,7 @@
 }
 
 
-@model HRMS.Models.WagesModels
+@model HRMS.Models.EmpEducationDetails
 <br />
 <div class="clearfix"></div>
 <div class="col-sm-8">
@@ -32,6 +32,43 @@
 
                 </div>
                 <br />
+            <div class="panel panel-success">
+                <div class="panel-heading"><strong>Education Details</strong> </div>
+                <div class="panel-body">
+
+                    @using (Html.BeginForm("EducationDetails", "Member"))
+                    {
+                        @Html.ValidationSummary()
+
+                        <div class="form-horizontal">
+                            <table border="1">
+
+                                <tr>
+                                    <td>10th</td>
+                                    <td>
+                                        <a href="~/EducationCer/@Model.cr10" target="_blank">@Model.cr10</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>12th</td>
+                                    <td><a href="~/EducationCer/@Model.cr12" target="_blank">@Model.cr12</a></td>
+                                </tr>
+                                <tr>
+                                    <td>GR.</td>
+                                    <td><a href="~/EducationCer/@Model.crGr" target="_blank">@Model.crGr</a></td>
+                                </tr>
+                                <tr>
+                                    <td>PO.GR.</td>
+                                    <td><a href="~/EducationCer/@Model.crPoGr" target="_blank">@Model.crPoGr</a></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    }
+                </div>
+
+            </div>
+
                 <div class="row">
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-10">

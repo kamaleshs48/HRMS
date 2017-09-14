@@ -187,6 +187,7 @@ namespace HRMS.Controllers
         }
         public ActionResult EmpDoc()
         {
+
             return View();
         }
         public ActionResult EMPOL(string ID)
