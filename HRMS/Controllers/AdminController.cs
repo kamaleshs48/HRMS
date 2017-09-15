@@ -62,7 +62,7 @@ namespace HRMS.Controllers
             htmlToPdfConverter.StopSlowScripts = true;
             htmlToPdfConverter.HtmlLoadedTimeout = 0;
             // set a demo serial number
-           // htmlToPdfConverter.SerialNumber = serialno;
+          //  htmlToPdfConverter.SerialNumber = serialno;
 
             // set browser width
             htmlToPdfConverter.BrowserWidth = 1200;
@@ -183,7 +183,23 @@ namespace HRMS.Controllers
 
         public ActionResult Attendence()
         {
-            return View();
+
+            EmpAttendanceModels models = new EmpAttendanceModels();
+
+            List<SelectListItem> MonthList = new List<SelectListItem>();
+            for (int i = 1; i <= DateTime.Now.Month; i++)
+            {
+                var day1 = new DateTime(DateTime.Now.Year, i, i);
+                models.MonthList.Add(new SelectListItem
+                {
+                    Value = day1.ToString("MMM"),
+                    Text = day1.ToString("MMM")
+
+                });
+            }
+            models.EmpList = EmployeeBL.GetEmpList().Select(x => new SelectListItem { Value = x.EmpID, Text = string.Format("EMP{0:0000}", Convert.ToInt32(x.EmpID)) + "-" + x.FirstName + " " + x.LastName }).ToList();
+
+            return View(models);
         }
         public ActionResult EmpDoc()
         {

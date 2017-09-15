@@ -40,9 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HiQPdf, Version=10.15.0.0, Culture=neutral, PublicKeyToken=acd8b62594985b24, processorArchitecture=MSIL">
+    <Reference Include="HiQPdf, Version=6.0.0.0, Culture=neutral, PublicKeyToken=acd8b62594985b24, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\IGTFS\Neurophysiology For PP\Neurophysiology For PP\bin\HiQPdf.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
@@ -197,6 +197,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\EmpAttendanceModels.cs" />
     <Compile Include="Models\EmpEducationDetails.cs" />
     <Compile Include="Models\EmployeeRegisterModel.cs" />
     <Compile Include="Models\LoginModels.cs" />
